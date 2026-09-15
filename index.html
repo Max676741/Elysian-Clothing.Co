@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ELYSIAN — Beyond Ordinary</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      background: #f7f5f0;
+      color: #111;
+      line-height: 1.6;
+    }
+    nav {
+      position: sticky; top: 0; z-index: 10;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 18px 7%;
+      background: rgba(247,245,240,.96);
+      border-bottom: 1px solid #d8d3c8;
+    }
+    .logo { font-size: 25px; letter-spacing: 5px; font-weight: bold; }
+    nav ul { display: flex; gap: 28px; list-style: none; }
+    nav a { color: #111; text-decoration: none; font-size: 14px; letter-spacing: 1px; }
+    nav a:hover { color: #b08a35; }
+    .hero {
+      min-height: 78vh;
+      display: grid; place-items: center; text-align: center;
+      padding: 80px 20px;
+      background:
+        radial-gradient(circle at 50% 35%, #fff 0, #eee9df 38%, #cfc9bc 100%);
+      position: relative; overflow: hidden;
+    }
+    .star { color: #b08a35; font-size: 42px; margin-bottom: 12px; }
+    .hero h1 { font-size: clamp(58px, 12vw, 140px); letter-spacing: 13px; }
+    .hero p { margin-top: 8px; letter-spacing: 7px; font-size: 15px; }
+    .tagline { margin-top: 28px; font-size: 20px; letter-spacing: 4px; }
+    .btn {
+      display: inline-block; margin-top: 32px; padding: 14px 30px;
+      background: #111; color: white; text-decoration: none;
+      letter-spacing: 2px; font-size: 13px;
+    }
+    .btn:hover { background: #b08a35; }
+    section { padding: 85px 8%; }
+    .section-title { text-align: center; font-size: 36px; letter-spacing: 4px; margin-bottom: 45px; }
+    .products {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 28px; max-width: 1100px; margin: auto;
+    }
+    .card { background: white; border: 1px solid #ddd7cb; padding-bottom: 24px; text-align: center; }
+    .product-image {
+      height: 300px; display: grid; place-items: center;
+      background: linear-gradient(145deg, #fdfcf9, #ddd9d0);
+      color: #111;
+    }
+    .shirt {
+      width: 145px; height: 165px; background: #fff;
+      clip-path: polygon(25% 0, 38% 10%, 62% 10%, 75% 0, 100% 25%, 82% 42%, 75% 31%, 75% 100%, 25% 100%, 25% 31%, 18% 42%, 0 25%);
+      box-shadow: 0 10px 25px rgba(0,0,0,.12);
+      display: grid; place-items: center;
+    }
+    .shirt span { font-size: 12px; letter-spacing: 2px; font-weight: bold; }
+    .card h3 { margin-top: 20px; letter-spacing: 2px; }
+    .price { margin-top: 5px; color: #8a6a28; }
+    .about {
+      background: #111; color: #f7f5f0;
+      text-align: center;
+    }
+    .about p { max-width: 720px; margin: auto; font-family: Arial, sans-serif; font-size: 17px; color: #ddd; }
+    .contact { max-width: 800px; margin: auto; text-align: center; }
+    .contact p { font-family: Arial, sans-serif; margin-bottom: 24px; color: #555; }
+    form { display: grid; gap: 14px; text-align: left; }
+    input, textarea {
+      width: 100%; padding: 14px; border: 1px solid #cfc9bc;
+      background: white; font: inherit;
+    }
+    textarea { min-height: 130px; resize: vertical; }
+    footer {
+      text-align: center; padding: 35px 20px; background: #0b0b0b; color: #aaa;
+      font-family: Arial, sans-serif; font-size: 13px;
+    }
+    @media (max-width: 650px) {
+      nav { flex-direction: column; gap: 12px; }
+      nav ul { gap: 15px; flex-wrap: wrap; justify-content: center; }
+      .hero h1 { letter-spacing: 7px; }
+      section { padding: 65px 6%; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">ELYSIAN</div>
+    <ul>
+      <li><a href="#home">HOME</a></li>
+      <li><a href="#shop">SHOP</a></li>
+      <li><a href="#about">ABOUT</a></li>
+      <li><a href="#contact">CONTACT</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="hero" id="home">
+      <div>
+        <div class="star">✦</div>
+        <h1>ELYSIAN</h1>
+        <p>CLOTHING CO.</p>
+        <div class="tagline">BEYOND ORDINARY</div>
+        <a class="btn" href="#shop">SHOP NOW</a>
+      </div>
+    </section>
+
+    <section id="shop">
+      <h2 class="section-title">THE COLLECTION</h2>
+      <div class="products">
+        <article class="card">
+          <div class="product-image"><div class="shirt"><span>ELYSIAN</span></div></div>
+          <h3>ELYSIAN ESSENTIAL TEE</h3>
+          <div class="price">$35.00</div>
+          <a class="btn" href="#contact">SHOP NOW</a>
+        </article>
+        <article class="card">
+          <div class="product-image"><div class="shirt"><span>✦ ELYSIAN ✦</span></div></div>
+          <h3>CELESTIAL TEE</h3>
+          <div class="price">$40.00</div>
+          <a class="btn" href="#contact">SHOP NOW</a>
+        </article>
+        <article class="card">
+          <div class="product-image"><div class="shirt"><span>BEYOND<br>ORDINARY</span></div></div>
+          <h3>BEYOND ORDINARY TEE</h3>
+          <div class="price">$40.00</div>
+          <a class="btn" href="#contact">SHOP NOW</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <h2 class="section-title">ABOUT ELYSIAN</h2>
+      <p>
+        ELYSIAN is a clothing brand built around individuality, confidence, and
+        creating pieces that feel different from the ordinary. Our goal is simple:
+        make clothing you want to wear and remember. This is only the beginning.
+      </p>
+    </section>
+
+    <section id="contact">
+      <div class="contact">
+        <h2 class="section-title">CONTACT</h2>
+        <p>Have a question about ELYSIAN? Send us a message.</p>
+        <form onsubmit="sendMessage(event)">
+          <input id="name" type="text" placeholder="Your name" required>
+          <input id="email" type="email" placeholder="Your email" required>
+          <textarea id="message" placeholder="Your message" required></textarea>
+          <button class="btn" type="submit">SEND MESSAGE</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 ELYSIAN CLOTHING CO. — BEYOND ORDINARY
+  </footer>
+
+  <script>
+    function sendMessage(event) {
+      event.preventDefault();
+      alert("Thanks for contacting ELYSIAN! Connect this form to your email service before launching.");
+    }
+  </script>
+</body>
+</html>
