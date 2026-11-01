@@ -7,179 +7,290 @@
   <title>ELYSIAN | Beyond Ordinary</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: Arial, sans-serif;
-      background: #f7f5f0;
+      background: #f5f2eb;
       color: #171717;
     }
     header {
-      background: #171717;
+      background: #111;
       color: white;
-      padding: 24px 7%;
+      padding: 22px 7%;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
     }
-    .logo {
-      font-family: Georgia, serif;
-      font-size: 27px;
-      letter-spacing: 5px;
-    }
-    .star { color: #c5a45b; }
+    .logo { font-size: 27px; letter-spacing: 5px; font-weight: bold; }
+    .logo span { color: #c6a45b; }
+    nav { display: flex; gap: 22px; align-items: center; }
     nav a {
       color: white;
       text-decoration: none;
-      margin-left: 22px;
       font-size: 12px;
       letter-spacing: 2px;
     }
+    .bag { color: #d5b66f; font-size: 13px; }
     .hero {
-      min-height: 480px;
-      background: linear-gradient(120deg,#ded8ca,#aaa18f);
+      min-height: 440px;
+      padding: 100px 8%;
       display: flex;
-      align-items: center;
+      flex-direction: column;
       justify-content: center;
-      text-align: center;
-      padding: 50px 20px;
+      background: linear-gradient(120deg, #ded9ce, #f7f5ef);
+    }
+    .eyebrow {
+      letter-spacing: 4px;
+      font-size: 11px;
+      margin-bottom: 20px;
     }
     .hero h1 {
       font-family: Georgia, serif;
-      font-size: clamp(38px,7vw,75px);
-      letter-spacing: 5px;
+      font-size: clamp(48px, 8vw, 88px);
+      font-weight: normal;
+      letter-spacing: 2px;
     }
-    .hero p {
-      margin: 20px 0 30px;
-      letter-spacing: 4px;
-      font-size: 12px;
-    }
-    .button {
+    .hero p { margin-top: 15px; letter-spacing: 3px; font-size: 13px; }
+    .shop-link {
       display: inline-block;
-      background: #171717;
+      margin-top: 35px;
+      background: #111;
       color: white;
-      padding: 16px 35px;
+      padding: 16px 27px;
+      width: fit-content;
       text-decoration: none;
+      letter-spacing: 2px;
       font-size: 11px;
-      letter-spacing: 3px;
     }
     section { padding: 75px 7%; }
-    .heading {
-      text-align: center;
+    .section-heading { text-align: center; margin-bottom: 40px; }
+    .section-heading h2 {
       font-family: Georgia, serif;
-      font-size: 32px;
-      letter-spacing: 3px;
-      margin-bottom: 12px;
+      font-size: 38px;
+      font-weight: normal;
     }
-    .subheading {
-      text-align: center;
+    .section-heading p {
+      margin-top: 12px;
       color: #777;
+      letter-spacing: 2px;
       font-size: 11px;
-      letter-spacing: 3px;
-      margin-bottom: 40px;
     }
     .products {
       display: grid;
-      grid-template-columns: repeat(3,1fr);
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 25px;
     }
-    .product-image {
-      height: 300px;
+    .product-card { background: #fff; padding-bottom: 24px; }
+    .product-art {
+      height: 280px;
       display: flex;
-      align-items: center;
       justify-content: center;
-      font-family: Georgia, serif;
-      font-size: 27px;
-      letter-spacing: 4px;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
     }
-    .black { background: #242424; color: white; }
-    .cream { background: #e6dfd1; color: #242424; }
-    .gray { background: #b8b5ae; color: #242424; }
-    .product h3 { margin-top: 17px; font-size: 14px; }
-    .product p { margin-top: 8px; color: #777; font-size: 13px; }
+    .black-bg { background: #242424; }
+    .cream-bg { background: #ded7c9; }
+    .white-bg { background: #e9e8e4; }
+    .garment {
+      width: 145px;
+      height: 185px;
+      border-radius: 25px 25px 12px 12px;
+      position: relative;
+      box-shadow: 0 15px 25px #0002;
+    }
+    .garment::before {
+      content: "";
+      position: absolute;
+      width: 55px;
+      height: 38px;
+      border-radius: 50%;
+      border: 8px solid currentColor;
+      border-bottom: 0;
+      top: -12px;
+      left: 37px;
+    }
+    .garment::after {
+      content: "✦";
+      position: absolute;
+      top: 65px;
+      left: 68px;
+      font-size: 17px;
+      color: #b99a54;
+    }
+    .tee { background: #111; color: #111; }
+    .hoodie { background: #e9dfcf; color: #e9dfcf; }
+    .sweatshirt { background: #f7f7f4; color: #f7f7f4; }
+    .product-info { padding: 20px 18px 0; }
+    .product-info h3 { font-size: 15px; letter-spacing: 1px; }
+    .price { margin: 9px 0 16px; color: #666; font-size: 14px; }
+    label { font-size: 12px; color: #555; }
+    select {
+      padding: 9px;
+      border: 1px solid #ccc;
+      background: white;
+      margin: 8px 0 13px;
+      width: 100%;
+    }
+    .add-button {
+      background: #111;
+      color: white;
+      border: none;
+      padding: 13px;
+      width: 100%;
+      cursor: pointer;
+      letter-spacing: 1px;
+    }
+    .add-button:hover { background: #806a3e; }
     .about {
-      background: #eae6dd;
       text-align: center;
-    }
-    .about p {
-      max-width: 550px;
-      margin: 20px auto;
-      line-height: 1.8;
-      color: #555;
-    }
-    footer {
       background: #171717;
       color: white;
+    }
+    .about h2 {
+      font-family: Georgia, serif;
+      font-size: 40px;
+      font-weight: normal;
+      margin-bottom: 20px;
+    }
+    .about p {
+      max-width: 570px;
+      margin: auto;
+      color: #ccc;
+      line-height: 1.8;
+    }
+    footer {
+      background: #111;
+      color: #aaa;
       text-align: center;
-      padding: 40px 15px;
-      font-size: 12px;
+      padding: 28px;
+      font-size: 11px;
       letter-spacing: 2px;
     }
-    @media(max-width:650px) {
-      header { flex-direction: column; gap: 20px; }
-      nav a { margin: 0 7px; }
-      .products { grid-template-columns: 1fr; }
-      .product-image { height: 260px; }
+    #message { text-align: center; margin-top: 20px; color: #806a3e; }
+    @media (max-width: 600px) {
+      header { justify-content: center; }
+      nav { justify-content: center; flex-wrap: wrap; }
+      .hero { min-height: 350px; }
+      section { padding: 55px 6%; }
     }
   </style>
 </head>
 <body>
 
 <header>
-  <div class="logo">ELYSIAN <span class="star">✦</span></div>
+  <div class="logo">ELYSIAN <span>✦</span></div>
   <nav>
     <a href="#home">HOME</a>
     <a href="#shop">SHOP</a>
     <a href="#about">ABOUT</a>
+    <span class="bag">BAG (<span id="bag-count">0</span>)</span>
   </nav>
 </header>
 
-<div class="hero" id="home">
-  <div>
-    <h1>BEYOND ORDINARY.</h1>
-    <p>WELCOME TO ELYSIAN</p>
-    <a href="#shop" class="button">EXPLORE COLLECTION</a>
-  </div>
-</div>
+<main>
+  <section class="hero" id="home">
+    <div class="eyebrow">THE EVERYDAY COLLECTION</div>
+    <h1>BEYOND<br>ORDINARY.</h1>
+    <p>CONFIDENCE IN EVERY DETAIL.</p>
+    <a class="shop-link" href="#shop">EXPLORE COLLECTION</a>
+  </section>
 
-<section id="shop">
-  <h2 class="heading">THE COLLECTION</h2>
-  <p class="subheading">COLLECTION 001 — COMING SOON</p>
-
-  <div class="products">
-    <div class="product">
-      <div class="product-image black">ELYSIAN ✦</div>
-      <h3>Essential Tee</h3>
-      <p>Coming soon</p>
+  <section id="shop">
+    <div class="section-heading">
+      <h2>The Collection</h2>
+      <p>TIMELESS STYLE. EVERYDAY COMFORT.</p>
     </div>
 
-    <div class="product">
-      <div class="product-image cream">ELYSIAN ✦</div>
-      <h3>Signature Hoodie</h3>
-      <p>Coming soon</p>
-    </div>
+    <div class="products">
+      <article class="product-card">
+        <div class="product-art black-bg">
+          <div class="garment tee"></div>
+        </div>
+        <div class="product-info">
+          <h3>ESSENTIAL TEE</h3>
+          <p class="price">$34.99</p>
+          <label for="size-tee">Select size</label>
+          <select id="size-tee">
+            <option value="">Choose a size</option>
+            <option>S</option><option>M</option>
+            <option>L</option><option>XL</option>
+          </select>
+          <button class="add-button" onclick="addToBag('Essential Tee', 'size-tee')">ADD TO BAG</button>
+        </div>
+      </article>
 
-    <div class="product">
-      <div class="product-image gray">ELYSIAN ✦</div>
-      <h3>Everyday Collection</h3>
-      <p>Coming soon</p>
-    </div>
-  </div>
-</section>
+      <article class="product-card">
+        <div class="product-art cream-bg">
+          <div class="garment hoodie"></div>
+        </div>
+        <div class="product-info">
+          <h3>SIGNATURE HOODIE</h3>
+          <p class="price">$64.99</p>
+          <label for="size-hoodie">Select size</label>
+          <select id="size-hoodie">
+            <option value="">Choose a size</option>
+            <option>S</option><option>M</option>
+            <option>L</option><option>XL</option>
+          </select>
+          <button class="add-button" onclick="addToBag('Signature Hoodie', 'size-hoodie')">ADD TO BAG</button>
+        </div>
+      </article>
 
-<section class="about" id="about">
-  <h2 class="heading">OUR VISION</h2>
-  <p>
-    Elysian was created with a vision to go beyond ordinary.
-    We believe clothing is more than what you wear.
-    It is a way to express who you are.
-  </p>
-  <p>BEYOND ORDINARY.</p>
-</section>
+      <article class="product-card">
+        <div class="product-art white-bg">
+          <div class="garment sweatshirt"></div>
+        </div>
+        <div class="product-info">
+          <h3>EVERYDAY SWEATSHIRT</h3>
+          <p class="price">$54.99</p>
+          <label for="size-sweatshirt">Select size</label>
+          <select id="size-sweatshirt">
+            <option value="">Choose a size</option>
+            <option>S</option><option>M</option>
+            <option>L</option><option>XL</option>
+          </select>
+          <button class="add-button" onclick="addToBag('Everyday Sweatshirt', 'size-sweatshirt')">ADD TO BAG</button>
+        </div>
+      </article>
+    </div>
+    <p id="message" aria-live="polite"></p>
+  </section>
+
+  <section class="about" id="about">
+    <h2>Our Vision</h2>
+    <p>
+      Elysian was created for those who see beyond the ordinary.
+      Built around simplicity, confidence, and timeless design,
+      our goal is to make everyday clothing feel extraordinary.
+    </p>
+    <p style="margin-top:25px; letter-spacing:4px;">ELYSIAN ✦</p>
+  </section>
+</main>
 
 <footer>
-  <div class="logo">ELYSIAN <span class="star">✦</span></div>
-  <p style="margin-top:15px;">BEYOND ORDINARY.</p>
-  <p style="margin-top:20px;">© 2026 ELYSIAN. ALL RIGHTS RESERVED.</p>
+  ELYSIAN ✦ &nbsp; BEYOND ORDINARY
 </footer>
+
+<script>
+  let bagCount = 0;
+
+  function addToBag(product, sizeId) {
+    const size = document.getElementById(sizeId).value;
+    const message = document.getElementById("message");
+
+    if (!size) {
+      message.textContent = "Please choose a size first.";
+      return;
+    }
+
+    bagCount++;
+    document.getElementById("bag-count").textContent = bagCount;
+    message.textContent = product + " (" + size + ") added to your bag!";
+  }
+</script>
 
 </body>
 </html>
